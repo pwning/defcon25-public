@@ -6,7 +6,7 @@ This project was created and developed for DEFCON 25 CTF Finals for PPP
   - Ned Williamson (nedwilliamson@gmail.com)
   - Ricky Zhou (ricky@rzhou.org)
 
-* clemency-as: Assembler
+* clemency-as & clemency-exploit-utils: Assembler and exploit utilities
   - Maxime Serrano (@mserrano)
   - Robert Xiao (@nneonneo)
   - Tyler Nighswander (@tylerni7)
