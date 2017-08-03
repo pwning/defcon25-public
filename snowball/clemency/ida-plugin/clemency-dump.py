@@ -2,9 +2,11 @@
 Dumps to original_binary.bin.patched.
 """
 
-import struct
+from __future__ import print_function
 import os
+import struct
 from idaapi import *
+
 
 class ClemencyFile(object):
     def __init__(self, f):
@@ -47,16 +49,18 @@ def get_first_segment():
     bs = get_many_bytes(SegStart(0), SegEnd(0))
     return struct.unpack('H' * (len(bs) / 2), bs)
 
+
 def write_patch():
     input_file_path = idaapi.get_input_file_path()
 
     if not os.path.exists(input_file_path):
-        print "ClemDump: warning: {} does not exist.".format(input_file_path)
+        print("ClemDump: warning: {} does not exist.".format(input_file_path))
 
     output_path = input_file_path + '.patched'
 
-    print "ClemDump: patched binary to", output_path
+    print("ClemDump: patched binary to", output_path)
     with open(output_path, 'wb') as output_fd:
         ClemencyFile(output_fd).write(get_first_segment())
+
 
 write_patch()
