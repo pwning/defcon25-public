@@ -569,9 +569,9 @@ class clemency_processor_t(idaapi.processor_t):
 
         elif itype == Iml:
             next_addr = self.cmd.ea + inst.size
-	    next_inst = pyclemency.disassemble(next_addr, lookahead_instruction(next_addr))
-	    if next_inst.insn == Iinvalid or next_inst.id != Imh or inst.rA != next_inst.rA:
-		return False
+            next_inst = pyclemency.disassemble(next_addr, lookahead_instruction(next_addr))
+            if next_inst.insn == Iinvalid or next_inst.id != Imh or inst.rA != next_inst.rA:
+                return False
             lo = inst.imm
             hi = next_inst.imm
             value = (hi << 10) | lo
