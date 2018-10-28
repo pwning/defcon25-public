@@ -9,7 +9,7 @@ orderedconds = "sge sg sle sl ns no ge le n e l g o s".split()
 specials     = [".", "I", "D"] + orderedconds
 
 def u(x, ip=None):
-  if type(x) is pyparsing.ParseResults:
+  if isinstance(x, pyparsing.ParseResults):
     return x.asList()[0]
   if isinstance(x, Symbolic):
     return x.value(ip)

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 import ctypes
 import pyclemency
 import struct
@@ -15,7 +16,7 @@ while True:
     for x in xrange(size):
         code[x] = struct.unpack('<H', buf[(pc+x)*2:(pc+x+1)*2])[0]
     inst = pyclemency.disassemble(pc, code)
-    print '%08X\t%s' % (pc, inst.str)
+    print('%08X\t%s' % (pc, inst.str))
     if inst.id == 0:
         break
     pc += inst.size
